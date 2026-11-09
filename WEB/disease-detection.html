@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Plant Disease Detection — AgriNiramaya</title>
+  <meta name="description" content="AI-assisted foliar plant disease detection and agronomic care suggestions">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        </div>
+        <div>
+          AgriNiramaya
+          <span class="brand-tagline-small">Healthy Plants. Smarter Farming.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="farm.html" class="nav-link">Farms</a>
+        <a href="disease-detection.html" class="nav-link active">Plant Health</a>
+        <a href="soil-monitoring.html" class="nav-link">Soil Telemetry</a>
+        <a href="assistant.html" class="nav-link">AI Assistant</a>
+        <a href="history.html" class="nav-link">History</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="nav-auth-actions" style="display:flex; align-items:center; gap:0.75rem;"></div>
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Navigation Bar -->
+  <div class="dash-subnav">
+    <div class="container">
+      <ul class="dash-subnav-list">
+        <li class="dash-subnav-item">
+          <a href="dashboard.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+            Overview
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="farm.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+            Farms
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="disease-detection.html" class="active">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            Disease Detection
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="soil-monitoring.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9 2.12 0 4.07-.74 5.61-1.97l-1.42-1.42A6.98 6.98 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.93 0 3.68.79 4.95 2.05L14 10h7V3l-2.64 2.64A8.96 8.96 0 0 0 12 3z"/></svg>
+            Soil Telemetry
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="assistant.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            Agronomy AI
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="history.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+            History & Logs
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Disease Detection Main Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="page-header">
+        <h1 class="page-title">
+          <svg style="width:28px; height:28px; color:var(--primary-accent);" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          Plant Foliar Disease Inspection
+        </h1>
+        <p class="page-subtitle">Upload leaf imagery for health diagnostic evaluation, symptom analysis, and preventive agronomy care</p>
+      </div>
+
+      <!-- Grid: Upload Panel + Architecture Ready Notice -->
+      <div style="display:grid; grid-template-columns: 1.2fr 0.8fr; gap:2rem; align-items:start; margin-bottom:2.5rem;">
+        
+        <!-- Upload Card -->
+        <div class="card">
+          <div class="card-header">
+            <div class="card-title">
+              <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/></svg>
+              Upload Leaf Sample
+            </div>
+            <span class="badge badge-neutral">JPG • JPEG • PNG (Max 10MB)</span>
+          </div>
+
+          <div class="card-body">
+            <form id="leaf-upload-form">
+              <div class="form-row" style="margin-bottom:1.25rem;">
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="crop-name-select" class="form-label">Crop Name *</label>
+                  <select id="crop-name-select" class="form-control" required>
+                    <option value="">-- Select Monitored Crop --</option>
+                    <option value="Tomato">Tomato (Solanum lycopersicum)</option>
+                    <option value="Potato">Potato (Solanum tuberosum)</option>
+                    <option value="Rice">Rice / Paddy (Oryza sativa)</option>
+                    <option value="Wheat">Wheat (Triticum)</option>
+                    <option value="Corn">Corn / Maize (Zea mays)</option>
+                    <option value="Cotton">Cotton (Gossypium)</option>
+                    <option value="Apple">Apple (Malus domestica)</option>
+                    <option value="Grape">Grape (Vitis vinifera)</option>
+                    <option value="Other">Other Agricultural Crop</option>
+                  </select>
+                </div>
+
+                <div class="form-group" style="margin-bottom:0;">
+                  <label for="farm-select-optional" class="form-label">Link to Farm Parcel</label>
+                  <select id="farm-select-optional" class="form-control">
+                    <option value="">-- No specific farm --</option>
+                  </select>
+                </div>
+              </div>
+
+              <!-- Drag and Drop Zone -->
+              <div id="leaf-dropzone" class="dropzone">
+                <input type="file" id="leaf-file-input" accept=".jpg,.jpeg,.png">
+                <svg class="dropzone-icon" viewBox="0 0 24 24" fill="currentColor">
+                  <path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96zM14 13v4h-4v-4H7l5-5 5 5h-3z"/>
+                </svg>
+                <div class="dropzone-text">Click to browse or drag and drop leaf photo</div>
+                <div class="dropzone-subtext">Clear, close-up photograph of affected or healthy leaf tissue</div>
+              </div>
+
+              <!-- Selected Image Preview -->
+              <div id="leaf-preview-box" class="image-preview-box" style="display:none;">
+                <img id="leaf-preview-img" class="image-preview-thumb" alt="Preview">
+                <div style="flex:1;">
+                  <div id="preview-filename" style="font-weight:600; font-size:0.9rem; color:var(--primary);">leaf_sample.jpg</div>
+                  <div style="font-size:0.8rem; color:var(--text-muted); margin-top:0.2rem;">Image verified and ready for backend upload</div>
+                </div>
+                <button type="button" class="btn btn-sm btn-outline" onclick="document.getElementById('leaf-file-input').click()">Change</button>
+              </div>
+
+              <!-- Upload Progress Indicator -->
+              <div id="upload-progress-container" style="display:none; margin-top:1.25rem;">
+                <div style="font-size:0.85rem; color:var(--primary); font-weight:600; margin-bottom:0.35rem;">Uploading to secure SQLite storage...</div>
+                <div style="height:6px; background:#e2ede5; border-radius:3px; overflow:hidden;">
+                  <div style="height:100%; width:70%; background:var(--primary-accent); animation:pulse 1s infinite alternate;"></div>
+                </div>
+              </div>
+
+              <button type="submit" id="upload-submit-btn" class="btn btn-primary btn-block" style="margin-top:1.5rem;">
+                Upload & Process Inspection
+              </button>
+            </form>
+          </div>
+        </div>
+
+        <!-- Academic Transparency & Model Architecture Ready Info -->
+        <div style="display:flex; flex-direction:column; gap:1.25rem;">
+          <div class="card" style="border-left: 4px solid var(--primary-accent);">
+            <div class="card-body">
+              <h3 style="font-size:1.1rem; color:var(--primary); margin-bottom:0.5rem; display:flex; align-items:center; gap:0.5rem;">
+                <svg style="width:20px; height:20px; color:var(--primary-accent);" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+                AI Model Architecture Ready
+              </h3>
+              <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">
+                In strict adherence to academic evaluation guidelines, AgriNiramaya <strong>never fabricates random or synthetic AI prediction confidence scores</strong>.
+              </p>
+              <div style="margin-top:0.75rem; font-size:0.85rem; color:var(--text-muted); line-height:1.5;">
+                • Images are securely validated, saved with UUIDs, and indexed in SQLite.<br>
+                • When a trained Convolutional Neural Network (CNN) weights file (e.g. MobileNet / ResNet <code>.h5</code> or <code>.onnx</code>) is placed in <code>flask_project/weights/</code>, automated model inference executes seamlessly.<br>
+                • When weights are pending, the diagnostic profile provides verified agronomic reference criteria for the selected crop.
+              </div>
+            </div>
+          </div>
+
+          <div class="card">
+            <div class="card-body" style="font-size:0.88rem; color:var(--text-muted);">
+              <h4 style="font-size:0.95rem; color:var(--primary); margin-bottom:0.5rem;">Inspection Best Practices</h4>
+              <ul style="padding-left:1.25rem; line-height:1.6;">
+                <li>Capture photograph in natural morning light</li>
+                <li>Avoid extreme blur or direct harsh sunlight reflection</li>
+                <li>Frame single leaf showing both diseased margins and green tissue</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Diagnostic Results Section (Hidden until upload) -->
+      <div id="detection-result-card" class="card" style="display:none; margin-bottom:2.5rem; border:2px solid var(--border-color); box-shadow:var(--shadow-md);">
+        <div class="card-header" style="background-color:var(--primary-surface);">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/></svg>
+            Inspection Report: <span id="res-crop-name" style="color:var(--primary); margin-left:0.35rem;">--</span>
+          </div>
+          <div style="display:flex; align-items:center; gap:0.5rem;">
+            <span id="res-confidence-badge" class="badge badge-warning">Confidence: --</span>
+            <span class="badge badge-info" id="res-status-text">Model Architecture Ready</span>
+          </div>
+        </div>
+
+        <div class="card-body">
+          <div style="display:grid; grid-template-columns: 240px 1fr; gap:1.75rem; align-items:start;">
+            
+            <!-- Inspected Image Thumbnail -->
+            <div>
+              <img id="res-inspected-image" alt="Inspected Leaf" style="width:100%; height:220px; object-fit:cover; border-radius:var(--radius-md); border:1px solid var(--border-color); box-shadow:var(--shadow-xs);">
+              <div style="font-size:0.75rem; text-align:center; color:var(--text-light); margin-top:0.4rem;">Archived Image Record</div>
+            </div>
+
+            <!-- Analysis Details Grid -->
+            <div style="display:flex; flex-direction:column; gap:1.25rem;">
+              <div>
+                <div style="font-size:0.8rem; text-transform:uppercase; font-weight:700; color:var(--text-muted); letter-spacing:0.04em;">Identified Pathogen / Condition Status</div>
+                <div id="res-disease-name" style="font-size:1.5rem; font-weight:800; color:var(--primary); margin-top:0.15rem;">--</div>
+              </div>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                <div style="background:var(--bg-page); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border-light);">
+                  <div style="font-size:0.82rem; font-weight:700; color:var(--primary); margin-bottom:0.35rem;">🔍 Symptoms & Field Observations</div>
+                  <div id="res-symptoms" style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">--</div>
+                </div>
+
+                <div style="background:var(--bg-page); padding:1rem; border-radius:var(--radius-md); border:1px solid var(--border-light);">
+                  <div style="font-size:0.82rem; font-weight:700; color:var(--primary); margin-bottom:0.35rem;">🔬 Pathogen & Environmental Context</div>
+                  <div id="res-info" style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">--</div>
+                </div>
+              </div>
+
+              <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem;">
+                <div style="background:#f0fdf4; padding:1rem; border-radius:var(--radius-md); border:1px solid #bbf7d0;">
+                  <div style="font-size:0.82rem; font-weight:700; color:#166534; margin-bottom:0.35rem;">🌱 Care Suggestions & Interventions</div>
+                  <div id="res-care" style="font-size:0.88rem; color:#14532d; line-height:1.5;">--</div>
+                </div>
+
+                <div style="background:#eff6ff; padding:1rem; border-radius:var(--radius-md); border:1px solid #bfdbfe;">
+                  <div style="font-size:0.82rem; font-weight:700; color:#1e40af; margin-bottom:0.35rem;">🛡️ Preventive Agronomic Measures</div>
+                  <div id="res-preventive" style="font-size:0.88rem; color:#1e3a8a; line-height:1.5;">--</div>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Upload History Table -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+            Foliar Inspection Archives
+          </div>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th style="width:60px;">Image</th>
+                  <th>Crop & File</th>
+                  <th>Diagnosis / Profile</th>
+                  <th>Analysis Status</th>
+                  <th>Date Recorded</th>
+                </tr>
+              </thead>
+              <tbody id="leaf-history-table-body">
+                <tr>
+                  <td colspan="5" style="text-align:center; padding:2rem; color:var(--text-muted);">
+                    Loading leaf inspection records...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container" style="text-align:center; padding-top:1.5rem;">
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        © 2026 AgriNiramaya • First-Year Engineering EDI Project • Python Flask & SQLite
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      initDiseaseDetectionPage();
+    });
+  </script>
+</body>
+</html>

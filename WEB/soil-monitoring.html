@@ -1,0 +1,333 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Soil Telemetry & Monitoring — AgriNiramaya</title>
+  <meta name="description" content="ESP32 IoT Soil Telemetry Dashboard - Moisture, Temperature, pH, and Agronomic Classification">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        </div>
+        <div>
+          AgriNiramaya
+          <span class="brand-tagline-small">Healthy Plants. Smarter Farming.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="farm.html" class="nav-link">Farms</a>
+        <a href="disease-detection.html" class="nav-link">Plant Health</a>
+        <a href="soil-monitoring.html" class="nav-link active">Soil Telemetry</a>
+        <a href="assistant.html" class="nav-link">AI Assistant</a>
+        <a href="history.html" class="nav-link">History</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="nav-auth-actions" style="display:flex; align-items:center; gap:0.75rem;"></div>
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Navigation Bar -->
+  <div class="dash-subnav">
+    <div class="container">
+      <ul class="dash-subnav-list">
+        <li class="dash-subnav-item">
+          <a href="dashboard.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+            Overview
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="farm.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+            Farms
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="disease-detection.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            Disease Detection
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="soil-monitoring.html" class="active">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9 2.12 0 4.07-.74 5.61-1.97l-1.42-1.42A6.98 6.98 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.93 0 3.68.79 4.95 2.05L14 10h7V3l-2.64 2.64A8.96 8.96 0 0 0 12 3z"/></svg>
+            Soil Telemetry
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="assistant.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            Agronomy AI
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="history.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+            History & Logs
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Soil Telemetry Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="page-header" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h1 class="page-title">
+            <svg style="width:28px; height:28px; color:var(--primary-accent);" viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9 2.12 0 4.07-.74 5.61-1.97l-1.42-1.42A6.98 6.98 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.93 0 3.68.79 4.95 2.05L14 10h7V3l-2.64 2.64A8.96 8.96 0 0 0 12 3z"/></svg>
+            Soil Telemetry & Node Health
+          </h1>
+          <p class="page-subtitle">Real-time IoT sensor telemetry, USDA/FAO soil classification, and micro-climate metrics</p>
+        </div>
+
+        <div style="display:flex; gap:0.65rem; flex-wrap:wrap;">
+          <button class="btn btn-secondary" onclick="openEsp32Modal()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>
+            ESP32 Node API Spec
+          </button>
+          <button class="btn btn-primary" onclick="openTestModal()">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+            Submit Test Telemetry
+          </button>
+        </div>
+      </div>
+
+      <!-- Sensor Node Status Banner -->
+      <div class="sensor-status-banner">
+        <div id="sensor-status-indicator" class="sensor-status-indicator">
+          <span class="pulse-dot offline"></span>
+          Checking sensor node link...
+        </div>
+        <div id="sensor-status-time" style="font-size:0.85rem; color:var(--text-muted);">
+          Last update: --
+        </div>
+      </div>
+
+      <!-- Four Core Sensor Gauges (Strictly "--" when no readings exist) -->
+      <div class="gauge-grid">
+        <div class="gauge-card">
+          <div class="gauge-icon" style="background:#e0f2fe; color:#0284c7;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2.69l5.66 5.66a8 8 0 1 1-11.31 0z"/></svg>
+          </div>
+          <div class="gauge-value" id="gauge-moisture">--</div>
+          <div class="gauge-label">Soil Moisture Content</div>
+          <div class="gauge-status" style="color:var(--text-muted);">Optimal Range: 40% – 70%</div>
+        </div>
+
+        <div class="gauge-card">
+          <div class="gauge-icon" style="background:#fef3c7; color:#d97706;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M15 13V5c0-1.66-1.34-3-3-3S9 3.34 9 5v8c-1.21.91-2 2.37-2 4 0 2.76 2.24 5 5 5s5-2.24 5-5c0-1.63-.79-3.09-2-4zm-4-2V5c0-.55.45-1 1-1s1 .45 1 1v1h-1v1h1v2h-1v1h1v1h-2z"/></svg>
+          </div>
+          <div class="gauge-value" id="gauge-temp">--</div>
+          <div class="gauge-label">Root-Zone Temperature</div>
+          <div class="gauge-status" style="color:var(--text-muted);">Optimal Range: 18°C – 28°C</div>
+        </div>
+
+        <div class="gauge-card">
+          <div class="gauge-icon" style="background:#dcfce7; color:#15803d;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <div class="gauge-value" id="gauge-ph">--</div>
+          <div class="gauge-label">Soil Acidity (pH Level)</div>
+          <div class="gauge-status" style="color:var(--text-muted);">Neutral Bio-Active: 6.2 – 7.2</div>
+        </div>
+
+        <div class="gauge-card">
+          <div class="gauge-icon" style="background:#f3e8ff; color:#9333ea;">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z"/></svg>
+          </div>
+          <div class="gauge-value" id="gauge-humidity">--</div>
+          <div class="gauge-label">Ambient Air Humidity</div>
+          <div class="gauge-status" style="color:var(--text-muted);">DHT Sensor Stream</div>
+        </div>
+      </div>
+
+      <!-- Soil Agronomic Classification Card -->
+      <div class="card" style="margin-bottom:2rem;">
+        <div class="card-header">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            USDA / FAO Agronomic Soil Classification
+          </div>
+          <span class="badge badge-success" id="soil-classification-text">Awaiting Telemetry</span>
+        </div>
+        <div class="card-body">
+          <div id="soil-agronomic-advice">
+            <div class="empty-state" style="padding:1.5rem;">
+              <p class="empty-desc">No telemetry data recorded yet. Submit a test sample or connect an ESP32 microcontroller to generate scientific soil evaluations.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Historical Sensor Readings Table -->
+      <div class="card">
+        <div class="card-header">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+            Chronological Telemetry Logs
+          </div>
+          <span class="badge badge-neutral">Showing Last 25 Records</span>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Timestamp</th>
+                  <th>Moisture</th>
+                  <th>Temperature</th>
+                  <th>pH</th>
+                  <th>Humidity</th>
+                  <th>Source</th>
+                  <th>Classification</th>
+                </tr>
+              </thead>
+              <tbody id="soil-history-table-body">
+                <tr>
+                  <td colspan="7" style="text-align:center; padding:2rem; color:var(--text-muted);">
+                    Loading sensor records...
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Manual Test Data Modal (Strictly labelled as test data) -->
+  <div id="soil-test-modal" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 class="modal-title">Manual Telemetry Console</h3>
+        <button class="modal-close-btn" onclick="closeTestModal()">&times;</button>
+      </div>
+
+      <form id="soil-test-form">
+        <div class="modal-body">
+          <div class="alert alert-warning" style="font-size:0.85rem; margin-bottom:1.25rem;">
+            <div>
+              <strong>Academic Integrity Notice:</strong> All values submitted via this console are explicitly saved with <code>is_test_data = 1</code> and tagged as "Test Data" to avoid fabricating authentic hardware telemetry.
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="test-moisture" class="form-label">Soil Moisture (0% – 100%) *</label>
+              <input type="number" id="test-moisture" class="form-control" step="0.1" min="0" max="100" value="52.4" required>
+            </div>
+            <div class="form-group">
+              <label for="test-temperature" class="form-label">Temperature (°C) *</label>
+              <input type="number" id="test-temperature" class="form-control" step="0.1" min="-10" max="60" value="23.8" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="test-ph" class="form-label">Soil pH (0.0 – 14.0) *</label>
+              <input type="number" id="test-ph" class="form-control" step="0.1" min="0" max="14" value="6.7" required>
+            </div>
+            <div class="form-group">
+              <label for="test-humidity" class="form-label">Air Humidity (%)</label>
+              <input type="number" id="test-humidity" class="form-control" step="0.1" min="0" max="100" value="65.0">
+            </div>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeTestModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Record Test Telemetry</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- ESP32 Arduino C++ Integration Modal -->
+  <div id="esp32-code-modal" class="modal-backdrop">
+    <div class="modal-dialog" style="max-width:720px;">
+      <div class="modal-header">
+        <h3 class="modal-title">ESP32 IoT Node Firmware Spec</h3>
+        <button class="modal-close-btn" onclick="closeEsp32Modal()">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:0.88rem; color:var(--text-muted); margin-bottom:1rem;">
+          Deploy this C++ sketch onto an <strong>ESP32 Microcontroller</strong> to continuously transmit sensor telemetry to AgriNiramaya via Wi-Fi:
+        </p>
+        <pre style="background:#1e293b; color:#e2e8f0; padding:1.25rem; border-radius:var(--radius-md); font-size:0.82rem; overflow-x:auto; font-family:var(--font-mono); line-height:1.5;"><code>#include &lt;WiFi.h&gt;
+#include &lt;HTTPClient.h&gt;
+
+const char* ssid = "YOUR_WIFI_SSID";
+const char* password = "YOUR_WIFI_PASSWORD";
+const char* serverUrl = "http://192.168.1.100:5000/api/sensor-data";
+
+void setup() {
+  Serial.begin(115200);
+  WiFi.begin(ssid, password);
+  while (WiFi.status() != WL_CONNECTED) { delay(500); }
+}
+
+void loop() {
+  if (WiFi.status() == WL_CONNECTED) {
+    HTTPClient http;
+    http.begin(serverUrl);
+    http.addHeader("Content-Type", "application/json");
+
+    // Read analog probes
+    float moisture = map(analogRead(34), 4095, 1500, 0, 100);
+    float temperature = 24.5; // From DHT22
+    float ph = 6.8;           // From analog pH sensor
+
+    String json = "{\"device_id\":\"ESP32_FIELD_01\","
+                  "\"moisture\":" + String(moisture) + ","
+                  "\"temperature\":" + String(temperature) + ","
+                  "\"ph\":" + String(ph) + "}";
+
+    int httpCode = http.POST(json);
+    http.end();
+  }
+  delay(30000); // 30-second telemetry interval
+}</code></pre>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" onclick="closeEsp32Modal()">Close</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container" style="text-align:center; padding-top:1.5rem;">
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        © 2026 AgriNiramaya • First-Year Engineering EDI Project • Python Flask & SQLite
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      initSoilMonitoringPage();
+    });
+  </script>
+</body>
+</html>

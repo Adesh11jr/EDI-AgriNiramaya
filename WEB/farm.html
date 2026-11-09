@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Farm Management — AgriNiramaya</title>
+  <meta name="description" content="Manage your agricultural farm parcels, crop varieties, and irrigation systems">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        </div>
+        <div>
+          AgriNiramaya
+          <span class="brand-tagline-small">Healthy Plants. Smarter Farming.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="farm.html" class="nav-link active">Farms</a>
+        <a href="disease-detection.html" class="nav-link">Plant Health</a>
+        <a href="soil-monitoring.html" class="nav-link">Soil Telemetry</a>
+        <a href="assistant.html" class="nav-link">AI Assistant</a>
+        <a href="history.html" class="nav-link">History</a>
+        <a href="about.html" class="nav-link">About</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="nav-auth-actions" style="display:flex; align-items:center; gap:0.75rem;"></div>
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Dashboard Navigation Bar -->
+  <div class="dash-subnav">
+    <div class="container">
+      <ul class="dash-subnav-list">
+        <li class="dash-subnav-item">
+          <a href="dashboard.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M3 13h8V3H3v10zm0 8h8v-6H3v6zm10 0h8V11h-8v10zm0-18v6h8V3h-8z"/></svg>
+            Overview
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="farm.html" class="active">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+            Farms
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="disease-detection.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            Disease Detection
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="soil-monitoring.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9 2.12 0 4.07-.74 5.61-1.97l-1.42-1.42A6.98 6.98 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.93 0 3.68.79 4.95 2.05L14 10h7V3l-2.64 2.64A8.96 8.96 0 0 0 12 3z"/></svg>
+            Soil Telemetry
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="assistant.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+            Agronomy AI
+          </a>
+        </li>
+        <li class="dash-subnav-item">
+          <a href="history.html">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 3a9 9 0 0 0-9 9H1l3.89 3.89.07.14L9 12H6c0-3.87 3.13-7 7-7s7 3.13 7 7-3.13 7-7 7c-1.93 0-3.68-.79-4.94-2.06l-1.42 1.42A8.954 8.954 0 0 0 13 21a9 9 0 0 0 0-18zm-1 5v5l4.28 2.54.72-1.21-3.5-2.08V8H12z"/></svg>
+            History & Logs
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- Main Farm Management Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <div class="page-header" style="display:flex; justify-content:space-between; align-items:flex-start; flex-wrap:wrap; gap:1rem;">
+        <div>
+          <h1 class="page-title">
+            <svg style="width:28px; height:28px; color:var(--primary-accent);" viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+            Farm Parcel Management
+          </h1>
+          <p class="page-subtitle">Configure agricultural plots, active crop varieties, and irrigation systems</p>
+        </div>
+
+        <button class="btn btn-primary" onclick="openAddFarmModal()">
+          <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+          Add New Farm
+        </button>
+      </div>
+
+      <!-- Farms Grid -->
+      <div id="farm-cards-container" style="display:grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap:1.5rem;">
+        <div class="empty-state" style="grid-column: 1 / -1; padding:3rem;">
+          <p class="empty-desc">Loading your farm parcel records...</p>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Add / Edit Farm Modal -->
+  <div id="farm-modal-backdrop" class="modal-backdrop">
+    <div class="modal-dialog">
+      <div class="modal-header">
+        <h3 id="farm-modal-title" class="modal-title">Add New Farm</h3>
+        <button class="modal-close-btn" onclick="closeFarmModal()">&times;</button>
+      </div>
+
+      <form id="farm-form" onsubmit="handleFarmFormSubmit(event)">
+        <div class="modal-body">
+          <input type="hidden" id="farm-id-input">
+
+          <div class="form-group">
+            <label for="farm-name-input" class="form-label">Farm / Plot Name *</label>
+            <input type="text" id="farm-name-input" class="form-control" placeholder="e.g. Green Valley North Plot" required>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="farm-location-input" class="form-label">Location / Village *</label>
+              <input type="text" id="farm-location-input" class="form-control" placeholder="e.g. Pune District, Sector 4" required>
+            </div>
+            <div class="form-group">
+              <label for="farm-size-input" class="form-label">Parcel Size (Acres) *</label>
+              <input type="number" id="farm-size-input" class="form-control" step="0.1" min="0.1" value="2.5" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="farm-crop-input" class="form-label">Cultivated Crop *</label>
+              <input type="text" id="farm-crop-input" class="form-control" placeholder="e.g. Tomato, Potato, Wheat" required>
+            </div>
+            <div class="form-group">
+              <label for="farm-variety-input" class="form-label">Crop Variety</label>
+              <input type="text" id="farm-variety-input" class="form-control" placeholder="e.g. Roma VF / Hybrid 402">
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="farm-soil-input" class="form-label">Soil Type</label>
+              <select id="farm-soil-input" class="form-control">
+                <option value="Alluvial">Alluvial Soil</option>
+                <option value="Black Cotton">Black Cotton Soil (Regur)</option>
+                <option value="Red Soil">Red / Sandy Loam</option>
+                <option value="Laterite">Laterite Soil</option>
+                <option value="Clay Loam">Clay Loam</option>
+                <option value="Sandy Soil">Sandy Soil</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="farm-irrigation-input" class="form-label">Irrigation Method</label>
+              <select id="farm-irrigation-input" class="form-control">
+                <option value="Drip Irrigation">Drip Irrigation (Precision)</option>
+                <option value="Sprinkler System">Sprinkler System</option>
+                <option value="Flood / Furrow">Flood / Furrow Irrigation</option>
+                <option value="Rainfed">Rainfed / Monsoon Natural</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="farm-notes-input" class="form-label">Field Notes / Boundary Information</label>
+            <textarea id="farm-notes-input" class="form-control" rows="2" placeholder="Notes on recent fertilizer application, water pump schedule, etc."></textarea>
+          </div>
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" onclick="closeFarmModal()">Cancel</button>
+          <button type="submit" class="btn btn-primary">Save Farm Record</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container" style="text-align:center; padding-top:1.5rem;">
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        © 2026 AgriNiramaya • First-Year Engineering EDI Project • Python Flask & SQLite
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      loadFarms();
+    });
+  </script>
+</body>
+</html>

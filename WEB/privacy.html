@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy — AgriNiramaya</title>
+  <meta name="description" content="Privacy Policy for AgriNiramaya Farm Telemetry and Leaf Diagnostics">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        </div>
+        <div>
+          AgriNiramaya
+          <span class="brand-tagline-small">Healthy Plants. Smarter Farming.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="farm.html" class="nav-link">Farms</a>
+        <a href="disease-detection.html" class="nav-link">Plant Health</a>
+        <a href="soil-monitoring.html" class="nav-link">Soil Telemetry</a>
+        <a href="assistant.html" class="nav-link">AI Assistant</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="nav-auth-actions" style="display:flex; align-items:center; gap:0.75rem;">
+          <a href="login.html" class="btn btn-sm btn-secondary">Login</a>
+          <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        </div>
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Privacy Policy Content -->
+  <main class="main-content">
+    <div class="container container-narrow">
+      
+      <div class="page-header" style="text-align:center; margin-bottom:2.5rem;">
+        <span class="section-label">Legal & Data Protection</span>
+        <h1 class="page-title" style="justify-content:center; font-size:2.2rem;">
+          Privacy Policy
+        </h1>
+        <p class="page-subtitle">Last updated: October 2026 • First-Year Engineering EDI Project</p>
+      </div>
+
+      <div class="card" style="box-shadow:var(--shadow-sm);">
+        <div class="card-body" style="font-size:0.95rem; line-height:1.7; color:var(--text-main);">
+          
+          <h3 style="color:var(--primary); font-size:1.15rem; margin-bottom:0.5rem;">1. Information We Collect</h3>
+          <p style="margin-bottom:1.25rem;">
+            AgriNiramaya collects user account information (full name, email address, password hash, and security recovery answers), farm parcel descriptions (location, acreage, crop varieties), soil telemetry values (moisture, temperature, pH, humidity transmitted by field IoT nodes), and uploaded foliar photographs.
+          </p>
+
+          <h3 style="color:var(--primary); font-size:1.15rem; margin-bottom:0.5rem;">2. Security & Password Protection</h3>
+          <p style="margin-bottom:1.25rem;">
+            In accordance with engineering standards, user passwords and security answers are <strong>never stored in plaintext</strong>. Passwords are cryptographically hashed using PBKDF2 with SHA-256 before insertion into the SQLite database. Session tokens are stored in secure session storage.
+          </p>
+
+          <h3 style="color:var(--primary); font-size:1.15rem; margin-bottom:0.5rem;">3. Telemetry & Leaf Image Storage</h3>
+          <p style="margin-bottom:1.25rem;">
+            Foliar leaf images uploaded to AgriNiramaya are saved with sanitized UUID filenames in the local <code>uploads/</code> directory. Images are associated exclusively with the authenticated user ID and are not shared with external third-party advertisers.
+          </p>
+
+          <h3 style="color:var(--primary); font-size:1.15rem; margin-bottom:0.5rem;">4. IoT Node Communication</h3>
+          <p style="margin-bottom:1.25rem;">
+            ESP32 microcontrollers communicate with AgriNiramaya REST endpoints over local Wi-Fi or secure HTTP protocols. Microcontroller telemetry is restricted to physical agricultural parameters and does not transmit personal identifying device metadata.
+          </p>
+
+          <h3 style="color:var(--primary); font-size:1.15rem; margin-bottom:0.5rem;">5. Contact & Data Deletion</h3>
+          <p>
+            Users may modify or delete their farm parcels and associated records at any time directly through the Farm Management dashboard. For project evaluation inquiries, reach out through our <a href="contact.html">Contact Page</a>.
+          </p>
+
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container" style="text-align:center; padding-top:1.5rem;">
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        © 2026 AgriNiramaya • First-Year Engineering EDI Project • Python Flask & SQLite
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

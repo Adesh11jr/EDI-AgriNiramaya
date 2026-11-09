@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AgriNiramaya — Healthy Plants. Smarter Farming.</title>
+  <meta name="description" content="AI-Enabled Integrated Plant Health and Soil Monitoring System - Engineering EDI Project">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header & Navigation -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        </div>
+        <div>
+          AgriNiramaya
+          <span class="brand-tagline-small">Healthy Plants. Smarter Farming.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link active">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="farm.html" class="nav-link">Farms</a>
+        <a href="disease-detection.html" class="nav-link">Plant Health</a>
+        <a href="soil-monitoring.html" class="nav-link">Soil Telemetry</a>
+        <a href="assistant.html" class="nav-link">AI Assistant</a>
+        <a href="about.html" class="nav-link">About Project</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="nav-auth-actions" style="display:flex; align-items:center; gap:0.75rem;">
+          <a href="login.html" class="btn btn-sm btn-secondary">Login</a>
+          <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        </div>
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section -->
+  <section class="hero-section">
+    <div class="container hero-grid">
+      <div>
+        <div class="hero-badge">
+          🌱 Engineering EDI Project • IoT & Precision Agronomy
+        </div>
+        <h1 class="hero-title">AgriNiramaya</h1>
+        <span class="hero-tagline">Healthy Plants. Smarter Farming.</span>
+        <p class="hero-desc">
+          An AI-enabled integrated plant health and soil monitoring ecosystem. Designed to assist farmers, students, and agronomists with real-time soil telemetry, image-based foliar inspection, and precision agricultural guidance.
+        </p>
+        <div class="hero-cta-group">
+          <a href="signup.html" class="btn btn-lg btn-primary">Get Started Free</a>
+          <a href="dashboard.html" class="btn btn-lg btn-secondary">Launch Dashboard</a>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="hero-card-preview">
+          <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:1.25rem;">
+            <div style="font-weight:700; color:var(--primary); font-size:1.1rem; display:flex; align-items:center; gap:0.5rem;">
+              <span class="pulse-dot online"></span>
+              Live Node Telemetry
+            </div>
+            <span class="badge badge-success">ESP32 Ready</span>
+          </div>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap:1rem; margin-bottom:1.25rem;">
+            <div style="background:var(--primary-surface); padding:1rem; border-radius:var(--radius-md);">
+              <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase;">Soil Moisture</div>
+              <div style="font-size:1.75rem; font-weight:800; color:var(--primary);">54%</div>
+              <div style="font-size:0.75rem; color:var(--success); font-weight:600;">✓ Optimal Loam</div>
+            </div>
+            <div style="background:var(--primary-surface); padding:1rem; border-radius:var(--radius-md);">
+              <div style="font-size:0.8rem; color:var(--text-muted); text-transform:uppercase;">Root pH</div>
+              <div style="font-size:1.75rem; font-weight:800; color:var(--primary);">6.8</div>
+              <div style="font-size:0.75rem; color:var(--success); font-weight:600;">✓ Neutral Range</div>
+            </div>
+          </div>
+
+          <div style="border-top:1px solid var(--border-light); padding-top:1rem; display:flex; align-items:center; gap:0.75rem;">
+            <div style="width:36px; height:36px; border-radius:var(--radius-sm); background:#e2f2e7; color:var(--primary); display:flex; align-items:center; justify-content:center;">
+              🌿
+            </div>
+            <div style="font-size:0.85rem; color:var(--text-muted); flex:1;">
+              <strong>Leaf Health Pipeline:</strong> Ready for Tomato, Potato, Wheat, and Rice CNN disease models.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Features Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Core Capabilities</span>
+        <h2 class="section-title">Built for Precision Agronomy</h2>
+        <p class="section-desc">
+          Modular, transparent, and technically understandable architecture tailored for real-world agricultural monitoring and academic demonstration.
+        </p>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+          </div>
+          <h3>Foliar Disease Inspection</h3>
+          <p>
+            Upload high-resolution leaf photographs for automated disease classification. Transparent architecture with diagnostic symptoms and preventive care protocols.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9 2.12 0 4.07-.74 5.61-1.97l-1.42-1.42A6.98 6.98 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.93 0 3.68.79 4.95 2.05L14 10h7V3l-2.64 2.64A8.96 8.96 0 0 0 12 3z"/></svg>
+          </div>
+          <h3>IoT Soil Telemetry</h3>
+          <p>
+            Ingest live field data from ESP32 nodes—tracking soil moisture, temperature, pH, and humidity with scientific agronomic health classifications.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M20 2H4c-1.1 0-2 .9-2 2v18l4-4h14c1.1 0 2-.9 2-2V4c0-1.1-.9-2-2-2z"/></svg>
+          </div>
+          <h3>Agronomy AI Assistant</h3>
+          <p>
+            Interactive agricultural assistant ready for external LLM API integration, backed by a verified offline agronomy rulebook covering watering, soil pH, and IPM.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M17 12h-5v5h5v-5zM16 1v2H8V1H6v2H5c-1.11 0-1.99.9-1.99 2L3 19c0 1.1.89 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2h-1V1h-2zm3 18H5V8h14v11z"/></svg>
+          </div>
+          <h3>Farm Parcel Management</h3>
+          <p>
+            Organize multiple farm plots with acreage, crop varieties, soil types, and irrigation methods stored securely in SQLite with user authentication.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M19 3H5c-1.1 0-2 .9-2 2v14c0 1.1.9 2 2 2h14c1.1 0 2-.9 2-2V5c0-1.1-.9-2-2-2zm-5 14H7v-2h7v2zm3-4H7v-2h10v2zm0-4H7V7h10v2z"/></svg>
+          </div>
+          <h3>Inspection & Telemetry History</h3>
+          <p>
+            Complete audit trail of all previous leaf analyses, sensor telemetry logs, and farm updates with responsive table views and instant filtering.
+          </p>
+        </div>
+
+        <div class="feature-box">
+          <div class="feature-icon-wrap">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm0 10.99h7c-.53 4.12-3.28 7.79-7 8.94V12H5V6.3l7-3.11v8.8z"/></svg>
+          </div>
+          <h3>Hardware & Privacy Compliant</h3>
+          <p>
+            Secure session authentication, password hashing, and honest data handling. Never fabricates sensor readings or fake prediction confidence scores.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- How It Works Section -->
+  <section class="section section-alt">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Workflow</span>
+        <h2 class="section-title">How AgriNiramaya Works</h2>
+        <p class="section-desc">
+          Four simple steps from field sensor deployment to actionable agronomic interventions.
+        </p>
+      </div>
+
+      <div class="steps-grid">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h4 style="font-size:1.15rem; color:var(--primary); margin-bottom:0.5rem;">Register Farm Parcels</h4>
+          <p style="font-size:0.9rem; color:var(--text-muted);">
+            Create farm profiles with location, acreage, specific crop varieties, and irrigation systems.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h4 style="font-size:1.15rem; color:var(--primary); margin-bottom:0.5rem;">Deploy ESP32 Sensors</h4>
+          <p style="font-size:0.9rem; color:var(--text-muted);">
+            Connect capacitive soil moisture probes and DHT sensors to stream live field telemetry into the REST API.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h4 style="font-size:1.15rem; color:var(--primary); margin-bottom:0.5rem;">Upload Foliar Images</h4>
+          <p style="font-size:0.9rem; color:var(--text-muted);">
+            Capture affected leaf photographs on your phone or camera to initiate diagnostic health assessment.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h4 style="font-size:1.15rem; color:var(--primary); margin-bottom:0.5rem;">Receive Interventions</h4>
+          <p style="font-size:0.9rem; color:var(--text-muted);">
+            Review precision irrigation advice, lime or sulfur soil treatments, and targeted IPM care measures.
+          </p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Benefits Section -->
+  <section class="section">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Impact</span>
+        <h2 class="section-title">Measurable Benefits for Farmers</h2>
+      </div>
+
+      <div class="feature-grid">
+        <div class="feature-box" style="border-left: 4px solid var(--primary);">
+          <h3>Early Pathogen Prevention</h3>
+          <p>
+            Detect fungal blight and chlorosis symptoms before irreversible crop damage and yield reduction occur.
+          </p>
+        </div>
+        <div class="feature-box" style="border-left: 4px solid var(--primary-accent);">
+          <h3>Resource Conservation</h3>
+          <p>
+            Avoid waterlogging and water waste by calibrating irrigation strictly according to real-time soil field capacity.
+          </p>
+        </div>
+        <div class="feature-box" style="border-left: 4px solid var(--warning);">
+          <h3>Balanced Soil Chemistry</h3>
+          <p>
+            Maintain optimal root-zone pH (6.2 - 7.2) for peak bioavailability of macro and micronutrients.
+          </p>
+        </div>
+      </div>
+
+      <div style="text-align:center; margin-top:3rem;">
+        <a href="signup.html" class="btn btn-lg btn-primary">Start Monitoring Now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container">
+      <div class="footer-grid">
+        <div class="footer-brand">
+          <div class="brand-logo" style="margin-bottom:0.5rem;">
+            <div class="brand-icon">
+              <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+            </div>
+            AgriNiramaya
+          </div>
+          <p>
+            AI-Enabled Integrated Plant Health and Soil Monitoring System. Engineering EDI Academic Project.
+          </p>
+          <div style="margin-top:1rem; font-weight:600; color:var(--primary); font-size:0.88rem;">
+            Tagline: Healthy Plants. Smarter Farming.
+          </div>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Platform</h4>
+          <ul class="footer-links">
+            <li><a href="dashboard.html">Dashboard</a></li>
+            <li><a href="farm.html">Farm Management</a></li>
+            <li><a href="disease-detection.html">Plant Disease Detection</a></li>
+            <li><a href="soil-monitoring.html">Soil Telemetry</a></li>
+            <li><a href="assistant.html">Agri Assistant</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Project</h4>
+          <ul class="footer-links">
+            <li><a href="about.html">About the EDI Project</a></li>
+            <li><a href="history.html">Inspection History</a></li>
+            <li><a href="contact.html">Contact & Feedback</a></li>
+          </ul>
+        </div>
+
+        <div>
+          <h4 class="footer-heading">Legal & Compliance</h4>
+          <ul class="footer-links">
+            <li><a href="privacy.html">Privacy Policy</a></li>
+            <li><a href="terms.html">Terms & Conditions</a></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="footer-bottom">
+        <div>© 2026 AgriNiramaya. All rights reserved. First-Year Engineering EDI Project.</div>
+        <div>Built with Python Flask, SQLite, and Modern Web Standards.</div>
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

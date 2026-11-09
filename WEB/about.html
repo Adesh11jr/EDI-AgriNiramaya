@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Project — AgriNiramaya</title>
+  <meta name="description" content="Engineering Design and Innovation (EDI) Project Overview for AgriNiramaya">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        </div>
+        <div>
+          AgriNiramaya
+          <span class="brand-tagline-small">Healthy Plants. Smarter Farming.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="farm.html" class="nav-link">Farms</a>
+        <a href="disease-detection.html" class="nav-link">Plant Health</a>
+        <a href="soil-monitoring.html" class="nav-link">Soil Telemetry</a>
+        <a href="assistant.html" class="nav-link">AI Assistant</a>
+        <a href="about.html" class="nav-link active">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="nav-auth-actions" style="display:flex; align-items:center; gap:0.75rem;">
+          <a href="login.html" class="btn btn-sm btn-secondary">Login</a>
+          <a href="signup.html" class="btn btn-sm btn-primary">Sign Up</a>
+        </div>
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- About Project Content -->
+  <main class="main-content">
+    <div class="container">
+      
+      <!-- Page Header -->
+      <div class="page-header" style="text-align:center; max-width:800px; margin:0 auto 3rem;">
+        <span class="section-label">Academic EDI Engineering Project</span>
+        <h1 class="page-title" style="justify-content:center; font-size:2.4rem;">
+          AgriNiramaya: System Architecture & Design
+        </h1>
+        <p class="page-subtitle" style="font-size:1.1rem; margin-top:0.75rem;">
+          <strong>AI-Enabled Integrated Plant Health and Soil Monitoring System</strong><br>
+          First-Year Engineering Design & Innovation (EDI) Project
+        </p>
+      </div>
+
+      <!-- Problem Statement & Motivation -->
+      <div class="card" style="margin-bottom:2.5rem;">
+        <div class="card-header">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z"/></svg>
+            Problem Statement & Engineering Motivation
+          </div>
+        </div>
+        <div class="card-body" style="font-size:0.95rem; line-height:1.7; color:var(--text-main);">
+          <p style="margin-bottom:1rem;">
+            Agriculture is the cornerstone of food security and rural livelihoods. However, smallholder and commercial farmers face recurring yield reductions caused by late foliar disease diagnosis, erratic rainfall, and uncalibrated chemical soil treatments. Traditional soil testing requires lab dispatch cycles taking days or weeks, while foliar pathogens often spread across an entire field within 48 to 72 hours under humid conditions.
+          </p>
+          <p>
+            <strong>AgriNiramaya</strong> bridges this gap by delivering an integrated, edge-to-cloud agricultural monitoring ecosystem. Combining low-power ESP32 IoT sensor telemetry with responsive web dashboards and modular AI image inspection pipelines, AgriNiramaya empowers farmers to practice scientific precision agriculture without prohibitive capital investment.
+          </p>
+        </div>
+      </div>
+
+      <!-- System Architecture Overview -->
+      <div class="section-header" style="margin-bottom:2rem;">
+        <span class="section-label">Technical Blueprint</span>
+        <h2 class="section-title">End-to-End System Architecture</h2>
+      </div>
+
+      <div class="steps-grid" style="margin-bottom:3rem;">
+        <div class="step-card">
+          <div class="step-number">01</div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:0.4rem;">Physical IoT Layer</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">
+            ESP32 microcontrollers deployed in fields. Connected to capacitive soil moisture sensors, analog pH electrodes, and DHT22 digital micro-climate sensors.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">02</div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:0.4rem;">RESTful Flask Backend</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">
+            Python Flask server operating on port 5000. Implements REST APIs for authentication, farm management, sensor ingestion, and leaf inspection.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">03</div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:0.4rem;">Persistent Relational Data</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">
+            Robust SQLite database (<code>plant_doctor.db</code>) with foreign keys, indexes, and user ownership for farms, telemetry, and uploads.
+          </p>
+        </div>
+
+        <div class="step-card">
+          <div class="step-number">04</div>
+          <h4 style="color:var(--primary); font-size:1.1rem; margin-bottom:0.4rem;">Responsive SaaS Frontend</h4>
+          <p style="font-size:0.88rem; color:var(--text-muted); line-height:1.5;">
+            Clean HTML5, CSS3, and Vanilla JavaScript design system. Fully responsive across smartphones, tablets, and desktop workstations.
+          </p>
+        </div>
+      </div>
+
+      <!-- Hardware Specifications Table -->
+      <div class="card" style="margin-bottom:3rem;">
+        <div class="card-header">
+          <div class="card-title">
+            <svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 3a9 9 0 0 0-9 9c0 4.97 4.02 9 9 9 2.12 0 4.07-.74 5.61-1.97l-1.42-1.42A6.98 6.98 0 0 1 12 19c-3.87 0-7-3.13-7-7s3.13-7 7-7c1.93 0 3.68.79 4.95 2.05L14 10h7V3l-2.64 2.64A8.96 8.96 0 0 0 12 3z"/></svg>
+            Hardware & IoT Node Specifications
+          </div>
+        </div>
+        <div class="card-body" style="padding:0;">
+          <div class="table-responsive">
+            <table class="table">
+              <thead>
+                <tr>
+                  <th>Component</th>
+                  <th>Model / Specification</th>
+                  <th>Operating Range</th>
+                  <th>Agronomic Role</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td><strong>Microcontroller</strong></td>
+                  <td>ESP32 NodeMCU (Xtensa Dual-Core 240MHz)</td>
+                  <td>Wi-Fi 802.11 b/g/n, BLE 4.2</td>
+                  <td>Sensor telemetry aggregation & HTTP POST transmission</td>
+                </tr>
+                <tr>
+                  <td><strong>Moisture Sensor</strong></td>
+                  <td>Capacitive Soil Moisture Probe v1.2</td>
+                  <td>0% – 100% Volumetric Water Content</td>
+                  <td>Corrosion-resistant root zone hydration monitoring</td>
+                </tr>
+                <tr>
+                  <td><strong>pH Sensor</strong></td>
+                  <td>Industrial Analog pH Probe & Sensor Shield</td>
+                  <td>pH 0.0 – 14.0 (±0.1 accuracy)</td>
+                  <td>Acidic/Alkaline soil balance & nutrient availability check</td>
+                </tr>
+                <tr>
+                  <td><strong>Climate Sensor</strong></td>
+                  <td>DHT22 / AM2302 High-Precision Digital Sensor</td>
+                  <td>-40°C to 80°C / 0% – 100% RH</td>
+                  <td>Foliar fungal risk calculation via humidity & temperature</td>
+                </tr>
+                <tr>
+                  <td><strong>Power Subsystem</strong></td>
+                  <td>3.7V 18650 Li-ion Cell with 5V Solar Step-Up</td>
+                  <td>Autonomous field deployment</td>
+                  <td>Continuous daytime charging and overnight sleep cycling</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+
+      <!-- Academic Project Credits & Information -->
+      <div class="card" style="background:var(--primary-surface); border:1px solid var(--border-color);">
+        <div class="card-body" style="padding:2rem;">
+          <h3 style="color:var(--primary); font-size:1.25rem; font-weight:700; margin-bottom:0.75rem;">
+            Academic Course & Demonstration Details
+          </h3>
+          <p style="font-size:0.92rem; color:var(--text-muted); line-height:1.6; margin-bottom:1.25rem;">
+            This project was engineered as part of the <strong>First-Year Engineering Design and Innovation (EDI)</strong> curriculum. It adheres strictly to ethical engineering principles: zero fabricated statistics, transparent AI model status, and modular, reproducible code.
+          </p>
+          <div style="display:flex; gap:1rem; flex-wrap:wrap;">
+            <a href="dashboard.html" class="btn btn-primary">Explore Live Dashboard</a>
+            <a href="contact.html" class="btn btn-outline">Contact Project Team</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container" style="text-align:center; padding-top:1.5rem;">
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        © 2026 AgriNiramaya • First-Year Engineering EDI Project • Python Flask & SQLite
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+</body>
+</html>

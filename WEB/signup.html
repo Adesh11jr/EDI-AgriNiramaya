@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign Up — AgriNiramaya</title>
+  <meta name="description" content="Create an account on AgriNiramaya Agricultural IoT Platform">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+  <!-- Site Header -->
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand-logo">
+        <div class="brand-icon">
+          <svg viewBox="0 0 24 24"><path d="M17 8C8 10 5.9 16.17 3.82 21.34L5.71 22l1-2.3A4.49 4.49 0 0 0 8 20C19 20 22 3 22 3c-1 2-8 2.25-13 3.25S2 11.5 2 13.5s1.75 3.75 1.75 3.75C7 8 17 8 17 8z"/></svg>
+        </div>
+        <div>
+          AgriNiramaya
+          <span class="brand-tagline-small">Healthy Plants. Smarter Farming.</span>
+        </div>
+      </a>
+
+      <nav class="main-nav">
+        <a href="index.html" class="nav-link">Home</a>
+        <a href="dashboard.html" class="nav-link">Dashboard</a>
+        <a href="about.html" class="nav-link">About</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+      </nav>
+
+      <div class="nav-actions">
+        <div id="nav-auth-actions" style="display:flex; align-items:center; gap:0.75rem;">
+          <a href="login.html" class="btn btn-sm btn-secondary">Login</a>
+        </div>
+        <button class="mobile-nav-toggle" aria-label="Toggle Navigation">☰</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Registration Form Container -->
+  <main class="main-content">
+    <div class="container container-narrow">
+      <div class="card" style="max-width:520px; margin:0 auto; box-shadow:var(--shadow-md);">
+        <div class="card-header" style="text-align:center; display:block; padding:1.75rem 1.5rem 1rem;">
+          <div style="width:48px; height:48px; margin:0 auto 0.75rem; border-radius:var(--radius-md); background:var(--primary-surface); color:var(--primary); display:flex; align-items:center; justify-content:center;">
+            <svg style="width:26px; height:26px;" viewBox="0 0 24 24" fill="currentColor"><path d="M15 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm-9-2V7H4v3H1v2h3v3h2v-3h3v-2H6zm9 4c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+          </div>
+          <h2 class="card-title" style="justify-content:center; font-size:1.45rem;">Create Your Account</h2>
+          <p style="font-size:0.88rem; color:var(--text-muted); margin-top:0.25rem;">Start monitoring plant health, soil vitals, and farm parcels</p>
+        </div>
+
+        <div class="card-body">
+          <div id="signup-alert" style="display:none;" class="alert alert-danger"></div>
+          <div id="signup-success" style="display:none;" class="alert alert-success"></div>
+
+          <form id="signup-form">
+            <div class="form-group">
+              <label for="signup-name" class="form-label">Full Name</label>
+              <input type="text" id="signup-name" class="form-control" placeholder="Ramesh Patel" required autocomplete="name">
+            </div>
+
+            <div class="form-group">
+              <label for="signup-email" class="form-label">Email Address</label>
+              <input type="email" id="signup-email" class="form-control" placeholder="ramesh.patel@example.com" required autocomplete="email">
+            </div>
+
+            <div class="form-row">
+              <div class="form-group">
+                <label for="signup-password" class="form-label">Password</label>
+                <input type="password" id="signup-password" class="form-control" placeholder="At least 6 chars" required minlength="6" autocomplete="new-password">
+              </div>
+              <div class="form-group">
+                <label for="signup-confirm-password" class="form-label">Confirm Password</label>
+                <input type="password" id="signup-confirm-password" class="form-control" placeholder="Repeat password" required minlength="6" autocomplete="new-password">
+              </div>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-question" class="form-label">Security Question (for password recovery)</label>
+              <select id="signup-question" class="form-control">
+                <option value="What is your favorite crop or plant?">What is your favorite crop or plant?</option>
+                <option value="What was the name of your primary village or town?">What was the name of your primary village or town?</option>
+                <option value="What is your favorite agricultural tool?">What is your favorite agricultural tool?</option>
+                <option value="What was your first school name?">What was your first school name?</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="signup-answer" class="form-label">Security Answer</label>
+              <input type="text" id="signup-answer" class="form-control" placeholder="Enter your secret answer" required>
+              <span class="form-text">Used to securely reset your password without relying on third-party mail servers.</span>
+            </div>
+
+            <button type="submit" id="signup-submit-btn" class="btn btn-primary btn-block" style="margin-top:1.5rem;">
+              Create Free Account
+            </button>
+          </form>
+        </div>
+
+        <div class="card-footer" style="text-align:center; font-size:0.88rem; color:var(--text-muted);">
+          Already have an account? <a href="login.html" style="font-weight:600;">Sign in here</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Site Footer -->
+  <footer class="site-footer">
+    <div class="container" style="text-align:center; padding-top:1.5rem;">
+      <div style="font-size:0.85rem; color:var(--text-light);">
+        © 2026 AgriNiramaya • First-Year Engineering EDI Project • Python Flask & SQLite
+      </div>
+    </div>
+  </footer>
+
+  <script src="js/script.js"></script>
+  <script>
+    document.getElementById("signup-form").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const name = document.getElementById("signup-name").value.trim();
+      const email = document.getElementById("signup-email").value.trim();
+      const password = document.getElementById("signup-password").value;
+      const confirmPassword = document.getElementById("signup-confirm-password").value;
+      const security_question = document.getElementById("signup-question").value;
+      const security_answer = document.getElementById("signup-answer").value.trim();
+      
+      const alertBox = document.getElementById("signup-alert");
+      const successBox = document.getElementById("signup-success");
+      const submitBtn = document.getElementById("signup-submit-btn");
+
+      alertBox.style.display = "none";
+      successBox.style.display = "none";
+
+      if (password !== confirmPassword) {
+        alertBox.textContent = "Passwords do not match. Please re-enter.";
+        alertBox.style.display = "flex";
+        return;
+      }
+
+      submitBtn.disabled = true;
+      submitBtn.textContent = "Creating Account...";
+
+      const { ok, data } = await apiFetch("/api/register", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({
+          name,
+          email,
+          password,
+          security_question,
+          security_answer
+        })
+      });
+
+      submitBtn.disabled = false;
+      submitBtn.textContent = "Create Free Account";
+
+      if (ok && data.success) {
+        successBox.textContent = "Account registered successfully! Redirecting to login...";
+        successBox.style.display = "flex";
+        setTimeout(() => {
+          window.location.href = "login.html";
+        }, 1200);
+      } else {
+        alertBox.textContent = data.message || "Registration failed. Please try again.";
+        alertBox.style.display = "flex";
+      }
+    });
+  </script>
+</body>
+</html>
