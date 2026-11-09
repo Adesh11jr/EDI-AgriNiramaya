@@ -6,11 +6,21 @@
 
 // Determine API Base URL dynamically
 const getApiBase = () => {
-  const origin = window.location.origin;
-  if (origin.includes("127.0.0.1:5000") || origin.includes("localhost:5000")) {
-    return ""; // Same origin as Flask backend
+  const { protocol, hostname, port } = window.location;
+
+  // Production (Render): use the same origin for frontend and backend
+  if (protocol === "http:" || protocol === "https:") {
+    const isLocalHost = hostname === "localhost" || hostname === "127.0.0.1";
+
+    // VS Code Live Server local development
+    if (isLocalHost && port && port !== "5000") {
+      return "http://127.0.0.1:5000";
+    }
+
+    return "";
   }
-  // If hosted on another port or opened directly via file://
+
+  // Local file testing
   return "http://127.0.0.1:5000";
 };
 
